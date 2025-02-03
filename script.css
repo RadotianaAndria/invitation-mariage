@@ -1,0 +1,83 @@
+/* Style de base */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-image: url('back.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+h2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: cursive;
+}
+
+/* Carte 3D */
+.card {
+    width: 60vw;
+    height: 90vh;
+    position: relative;
+    perspective: 1000px;
+    cursor: pointer;
+    border: 3px solid #333;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transform-style: preserve-3d;
+    transition: transform 1s ease-in-out;
+}
+
+.card-face {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Images dans les faces de la carte */
+.card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 15%;
+    transition: transform 0.5s ease-in-out;
+    background-color: #ffe3c0;
+}
+
+/* Face arrière de la carte */
+.back {
+    transform: rotateY(180deg);
+}
+
+/* Rotation au survol après le clic */
+.hover-rotate:hover {
+    transform: rotateY(360deg);
+}
+
+/* Retourner la carte */
+.card.flipped {
+    transform: rotateY(180deg);
+}
+
+/* Media Queries pour plus petits écrans */
+@media (max-width: 768px) {
+    .card {
+        width: 80vw;
+        height: 60vh;
+    }
+}
+
+@media (max-width: 480px) {
+    .card {
+        width: 90vw;
+        height: 50vh;
+    }
+}
